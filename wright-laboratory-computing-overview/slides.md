@@ -27,7 +27,10 @@ footer: '![wl_footer](https://github.com/vbalbarin/presentations/raw/main/wright
 
 ---
 
-# Wright Laboratory Computing Overview
+# **Wright Laboratory Computing Overview**
+
+Vincent Balbarin
+September 19, 2022
 
 ---
 
