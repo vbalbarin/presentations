@@ -23,7 +23,7 @@ style: |
     }
 
 
-footer: '![wl_footer](https://github.com/vbalbarin/presentations/raw/main/wright-laboratory-computing-overview/assets/WL_Footer.png)'
+footer: '![wl_footer](https://github.com/vbalbarin/presentations/raw/main/assets/common/wl_slide_footer.png)'
 
 ---
 
