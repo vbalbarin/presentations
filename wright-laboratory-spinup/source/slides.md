@@ -41,15 +41,25 @@ September 27, 2022
 
 </div><div>
 
-![img w:450 h:450](../../assets/wright-laboratory-spinup/yale_spinup_logo.png)
+![img w:450 h:450](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-spinup/yale_spinup_logo.png)
 
 </div></div>
 
 
 ---
 <!-- paginate: true -->
+<style>
+blockquote {
+    border-top: 0.1em dashed #555;
+    font-size: 60%;
+    margin-top: 50px;
+}
+sup {
+  font-size: 65%;
+}
+</style>
 
-## Key Traits of Cloud Computing
+## Key Traits of Cloud Computing<sup>1</sup>
 
 * Self-provisioning
 * Shared
@@ -57,11 +67,13 @@ September 27, 2022
 * Accessible
 * Metered
 
+> 1. Peter Mell; Timothy Grance (September 2011). The NIST Definition of Cloud Computing (Technical report). National Institute of Standards and Technology: U.S. Department of Commerce.
+
 <!-- 
 
 notes:
-* How are the traits different from previous computing paradigms?
-* How is this any different from
+. How are the traits different from previous computing paradigms?
+. How is this any different from the servers at WL? A mainframe?
 
 -->
 
@@ -71,7 +83,7 @@ notes:
 
 * Identity and role-based access controls
 * Policy
-* Automated provisioning and configurationof workloads
+* Automated provisioning and configuration of workloads
 * Wide area networks
 * Service instrumentation
 
@@ -86,56 +98,51 @@ notes:
 
 ----
 
-## How can we do it?
-
----
-
 ## Yale Spinup
 
 * Application layer over a shared AWS account
 * Yale governance
+  * CAS/Shibboleth identity
+  * Enterprise and business agreement with Amazon
+  * Automated creation and configuration adhering to institutional standards
+  * Shared responsibility
+* Enables self-service
 
+<!-- 
 
----
+notes:
 
-## Identity and Access
+. Spinup leverages institional identity.
+. The enteprise and business agreement guarantees a s certain level of service and protection and a negotiated cost.
+. Spinup implements reporting for usage, billing and chargback.
+. Amazon offers many services which can be difficult to implement; automation makes commonly used ones easy to consume by configuring them to Yale standards. Shared responsibility
+. We deploy resources only to pre-authorize regions (US East 1/N. Virginia)
 
-* CAS/Shibboleth identity provider
-* This identity is set as the owner of Spaces and Teams
-* Space manages resources
-* Team manages authorized spinup users
-* NB, at the service level only creator-owners have privileges, IE a Team member has the rights to create and delete servers. That person must explicity grant (useradd) at resource level.
-
----
-
-## Resource
-
-* Deployed to closest region (US East 1/N. Virginia)
-* Preconfigured resource types 
-* Spaces
-  * Logical grouping of resources
-  * Access and cost boundary
-* Charge-back and cost management
-
+-->
 
 ---
 
-## Demonstration
+## Demonstration Spinup Web Application
 
-[![spinup w:768px h:435px ](../../assets/wright-laboratory-spinup/yale_spinup_login.png)](https://spinup.internal.yale.edu)
+[![spinup w:768px h:435px ](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-spinup/yale_spinup_login.png)](https://spinup.internal.yale.edu)
 
 <!-- 
 
 ## notes:
 
-1. The portal can be reached from campus or VPN IP addresses
-2. CAS
-3. User home
-   a. Create Space
-   b. Create a Team
-4. New space
-5. Overview of resources
-
+. The portal can be reached from campus or VPN IP addresses
+. CAS
+. Demonstrate management features
+. Demonstrate profile information and ssh key for owner.
+. ** Important, users will be periodically requested to read the shared responsibility document **
+. User home
+   . Create Space
+   . Create a Team
+. New space. A space is a logical container for a set of related resources owned by the creator of that space.
+. A team is a collection of users that can granted priveleges to a space.
+. Overview of resources
+. NB, at the service level only creator-owners have privileges, IE a Team member has the rights to create and delete servers. That person must explicity grant (useradd) at resource level.
+. Go over some ot the tabs along the top.
 
 -->
 
@@ -156,12 +163,14 @@ notes:
 
 ## notes:
 
-1. Select image, tryit
-2. Launch
-3. Show ssh
-4. Remind folks that only createor is root; must add others
-5. Best practice add another key
-6. Cost, delete or shutoff instances
+. Select image, tryit
+. Launch
+. Show ssh
+. Remind folks that only createor is root; must add others
+. Best practice add another key
+. Manage costs by deleting or shutting off instances
+. Show snapshots.
+. Remind folks that they are responsible for
 
 -->
 
@@ -176,6 +185,10 @@ notes:
 
 ---
 
+## Demonstration: Spinup Database Services
+
+---
+
 ## Storage
 
 * S3 object storage
@@ -186,43 +199,81 @@ notes:
 
 ## notes:
 
-1. Talk about durability and availability; data can be spread across a region/regions
-2. Access via https
-3. NB, access keys should be cycled.
-3. Pay only for what you use
-3. Current cost for S3 12 USD/(500 GB * 30 days); for glacier 2 USD(500 GB * 30 days)
-3. NFS endpoints are available only to the space
-4. Storage grows and shrinks
-5. Policy to move less accessed data to cooler (less pricy storage)
+. Talk about durability and availability; data can be spread across a region/regions
+. Access via https
+. NB, access keys should be cycled.
+. Pay only for what you use
+. Current cost for S3 12 USD/(500 GB * 30 days); for glacier 2 USD(500 GB * 30 days)
+. NFS endpoints are available only to the space
+. Storage grows and shrinks
+. Policy to move less accessed data to cooler (less pricy storage)
 
 -->
+
+---
+
+## Demonstration: Spinup Storage Services
 
 ---
 
 ## Containers
 
-* Containers such as docker isolate the application runtime from the underlying OS
+<div class="columns"><div>
+
+* Isolation of application from host
+* All dependencies encapsulated
 * Achieve greater densitity and utilization
 * Drawbacks
   * Complicated infrastructure
   * Orchestration of interrelated services
+  * Stateless
 
+
+</div><div>
+
+![img w:500 h:450](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-spinup/aws_fargate_ecs.png)
+
+</div></div>
 
 <!-- 
 
 notes:
 
-1. Docker and podman allow you to package up the runtime environment (OS components and application components).
-2. Each container is specific to a component--ie, database, middle tier, application.
-3. Docker swarm lets you run on local system or instance--you have to maintain host
-4. Kubernetes is a complete solution that provides control plane for scalout of instances and takes care of orchestration and communication between components.
+. Docker and podman allow you to package up the runtime environment (OS components and application components).
+. Each container is specific to a component--ie, database, middle tier, application.
+. No need to patch or update. Specify new image and the orchestration takes down running container.
+. Docker swarm lets you run on local system or instance--you have to maintain host
+. Kubernetes is a complete solution that provides control plane for scalout of instances and takes care of orchestration and communication between components.
 
 -->
 ---
 
-## Spinup Container Services
+## Demonstration: Spinup Container Services
+
+<!--
+
+. Test-API pattern
+. Persistent volume
+. Database as service
+. Stateless application
+. Stop and start and redploy
+
+-->
 
 ---
 
-## Networking
+## Conclusion
+
+* Constitutes an ideal environment to learn cloud computing.
+* Provides convenient and secured access to the AWS cloud.
+* Provides a stepping-off point for the other clouds that Yale offers
+
+
+---
+
+## Resources
+
+* [Yale Spinup Selfservice FAQ](https://yaleits.atlassian.net/wiki/spaces/spinup/pages/470614243/Spinup+Selfservice+FAQ)
+* **#spinup** channel in [Yale University Slack](https://yale.slack.com/) 
+
 
