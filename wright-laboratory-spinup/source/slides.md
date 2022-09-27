@@ -231,7 +231,7 @@ notes:
 
 </div><div>
 
-![img w:500 h:450](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-spinup/aws_fargate_ecs.png)
+![img w:528 h:400](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-spinup/mediawiki_containers.png)
 
 </div></div>
 
