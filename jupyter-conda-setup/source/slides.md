@@ -12,6 +12,7 @@ style: |
     }
 
     section {
+      font-size: 1.2em;
       justify-content: flex-start;
     }
 
@@ -102,8 +103,6 @@ Execute script to install `conda`
 sh ./Miniconda3-py310_23.3.1-0-Linux-x86_64.sh -b
 ```
 
----
-
 Initialize `miniconda`:
 
 ```bash
@@ -189,8 +188,6 @@ remote_jupyter_token="{{ .pasteValueFromYourClipboard }}"
 
 ssh -L "${local_port}":localhost:"${remote_jupyter_port}" user@host
 ```
-
----
 
 Browse to Jupyter Lab/Notebook site:
 
