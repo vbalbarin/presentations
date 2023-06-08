@@ -28,13 +28,16 @@ npm install --save-dev @marp-team/marp-cli
 * Copy the `wright-laboratory-preso-template` directory to create a new presentation.
 
 ```bash
-cp -R wright-laboratory-preso-template "{{ .newPresentationName }}"
+new_preso='{{ newPresentationName }}'
+
+cp -R wright-laboratory-preso-template "${new_preso}"
 ```
 
 * Modify `./source/slides.md`. ([This](https://www.hashbangcode.com/article/creating-presentations-markdown-marp#:~:text=Assuming%20you%20have%20npm%20installed%20you%20can%20initialise,npm%20init%20--yes%20%24%20npm%20install%20--save-dev%20%40marp-team%2Fmarp-cli) quick reference may be helpful.)
 * Generate HTML slides.
 
 ```bash
-cd "{{ .newPresentationName }}"
-npx marp --output=. --input-dir=source --allow-local-files
+npx marp --alllow-local-files \
+  --output="${new_preso}/slides.html" \
+  "${new_preso}/source/slides.md"
 ```
