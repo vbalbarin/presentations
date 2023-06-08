@@ -12,6 +12,7 @@ style: |
     }
 
     section {
+      font-size: 1.2em;
       justify-content: flex-start;
     }
 
