@@ -237,3 +237,19 @@ whatis "{{ command }}"
 # When you have an idea of what you want, but not a specific command
 apropos "{{ commandOrAction }}"
 ```
+
+---
+
+```bash
+# To view last set of commands in your history
+history | less
+
+# To search your history for a particular command invocation
+history | grep -i "{{ string }}"
+
+# To invoke a specific item in your history
+# Note lack of space between exclamation point and number*
+!{{ numberOfCommand }}
+```
+
+For even more fun with `history`: [How to Use Bash History to Improve Your Command-Line](https://www.howtogeek.com/44997/how-to-use-bash-history-to-improve-your-command-line-productivity/)
