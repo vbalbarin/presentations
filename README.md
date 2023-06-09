@@ -41,3 +41,6 @@ npx marp --alllow-local-files \
   --output="${new_preso}/slides.html" \
   "${new_preso}/source/slides.md"
 ```
+<div class="footer">
+  &copy; 2023 Yale University
+</div>
