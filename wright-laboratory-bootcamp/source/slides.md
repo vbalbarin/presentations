@@ -89,7 +89,7 @@ Launching a command line terminal:
 Generation of SSH keypair:
 
 ```shell
-ssh-keygen --type ed25519
+ssh-keygen -t ed25519
 ```
 
 1. Answer the prompts with default values.
