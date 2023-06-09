@@ -178,24 +178,59 @@ These values will change for every launch of Jupyter.
 
 ---
 
-On your workstation or laptop create an SSH tunnel to forward requests to the Jupyter web server
+## Create an SSH Tunnel
+
+We create an encrypted tunnel that will connect an available network port from our client
+to the Jupyter listening port on the remote server.
+
+This terminal session should be open during your use of the remote Jupyter application.
+
+On your Unix-based laptop or workstation, open a new terminal session.
 
 ```bash
 local_port=8888 # pick any appropriately high numbered port
-remote_jupyter_port="{{ .pasteValueFromYourClipboard }}"
-remote_jupyter_token="{{ .pasteValueFromYourClipboard }}"
+remote_jupyter_port="$VALUE_FROM_CLIPBOARD"
+remote_jupyter_token="$VALUE_FROM_CLIPBOARD"
 
 
 ssh -L "${local_port}":localhost:"${remote_jupyter_port}" user@host
 ```
 
-Browse to Jupyter Lab/Notebook site:
+Note: replace entire contents between `""`s.
+For example, `"$VALUE_FROM_CLIPBOARD"`, should be `"57321"`.
+
+---
+
+From a Windows client, open a new Powershell session.
+
+```Powershell
+$local_port=8888 # pick any appropriately high numbered port
+$remote_jupyter_port="$VALUE_FROM_CLIPBOARD"
+$remote_jupyter_token="$VALUE_FROM_CLIPBOARD"
+
+
+ssh -L "${local_port}:localhost:${remote_jupyter_port}"  NetID}}@{{ ServerFQDN 
+
+```
+
+---
+
+Browse to the remote Jupyter Lab/Notebook.
 
 ```bash
 # OS X
 open "http://localhost:${local_port}/lab?token=${remote_jupyter_token}"
+```
 
+```bash
 # Linux
 [firefox | google-chrome] "http://localhost:${local_port}/lab?token=${remote_jupyter_token}"
 python3 -m webbrowser -t "http://localhost:${local_port}/lab?token=${remote_jupyter_token}"
 ```
+
+```powershell
+# Windows Powershell
+Start-Process "http://localhost:${local_port}/lab?token=${remote_jupyter_token}"
+```
+
+These commands will open a session of the default browser to the remote host.
