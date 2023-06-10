@@ -193,7 +193,7 @@ remote_jupyter_port="$VALUE_FROM_CLIPBOARD"
 remote_jupyter_token="$VALUE_FROM_CLIPBOARD"
 
 
-ssh -L "${local_port}":localhost:"${remote_jupyter_port}" user@host
+ssh -L "${local_port}":localhost:"${remote_jupyter_port}" $SSH_USERNAME@$SSH_REMOTE_HOST
 ```
 
 Note: replace entire contents between `""`s.
@@ -209,7 +209,7 @@ $remote_jupyter_port="$VALUE_FROM_CLIPBOARD"
 $remote_jupyter_token="$VALUE_FROM_CLIPBOARD"
 
 
-ssh -L "${local_port}:localhost:${remote_jupyter_port}"  NetID}}@{{ ServerFQDN 
+ssh -L "${local_port}:localhost:${remote_jupyter_port}"  $SSH_USERNAME@$SSH_REMOTE_HOST
 
 ```
 
