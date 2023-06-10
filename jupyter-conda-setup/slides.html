@@ -523,7 +523,7 @@ remote_jupyter_port=<span class="hljs-string">&quot;<span class="hljs-variable">
 remote_jupyter_token=<span class="hljs-string">&quot;<span class="hljs-variable">$VALUE_FROM_CLIPBOARD</span>&quot;</span>
 
 
-ssh -L <span class="hljs-string">&quot;<span class="hljs-variable">${local_port}</span>&quot;</span>:localhost:<span class="hljs-string">&quot;<span class="hljs-variable">${remote_jupyter_port}</span>&quot;</span> user@host
+ssh -L <span class="hljs-string">&quot;<span class="hljs-variable">${local_port}</span>&quot;</span>:localhost:<span class="hljs-string">&quot;<span class="hljs-variable">${remote_jupyter_port}</span>&quot;</span> <span class="hljs-variable">$SSH_USERNAME</span>@<span class="hljs-variable">$SSH_REMOTE_HOST</span>
 </code></pre>
 <p>Note: replace entire contents between <code>&quot;&quot;</code>s.<br />
 For example, <code>&quot;$VALUE_FROM_CLIPBOARD&quot;</code>, should be <code>&quot;57321&quot;</code>.</p>
@@ -580,7 +580,7 @@ footer {
 <span class="hljs-variable">$remote_jupyter_token</span>=<span class="hljs-string">&quot;<span class="hljs-variable">$VALUE_FROM_CLIPBOARD</span>&quot;</span>
 
 
-ssh <span class="hljs-literal">-L</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{local_port}:localhost:<span class="hljs-variable">$</span>{remote_jupyter_port}&quot;</span>  NetID}}<span class="hljs-selector-tag">@</span>{{ ServerFQDN 
+ssh <span class="hljs-literal">-L</span> <span class="hljs-string">&quot;<span class="hljs-variable">$</span>{local_port}:localhost:<span class="hljs-variable">$</span>{remote_jupyter_port}&quot;</span>  <span class="hljs-variable">$SSH_USERNAME</span><span class="hljs-selector-tag">@</span><span class="hljs-variable">$SSH_REMOTE_HOST</span>
 
 </code></pre>
 <footer><img src="https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/common/wl_slide_footer.png" alt="wl_footer" /></footer>
