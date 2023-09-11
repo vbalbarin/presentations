@@ -75,7 +75,7 @@ sup {
 
 ## Migration Activities
 
-![img h:464 ](../../assets/wright-laboratory-ngn/wl_migration_activities.png)
+![img h:464 ](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-ngn/wl_migration_activities.png)
 
 ---
 
@@ -87,7 +87,7 @@ sup {
 
 ## User Actions
 
-![img h:464 ](../../assets/wright-laboratory-ngn/wl_preparation.png)
+![img h:464 ](https://raw.githubusercontent.com/vbalbarin/presentations/main/assets/wright-laboratory-ngn/wl_preparation.png)
 
 ---
 
